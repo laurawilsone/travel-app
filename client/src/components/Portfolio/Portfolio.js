@@ -104,4 +104,4 @@ class Portfolio extends Component {
     }
 }
 
-export default Navbar;
+export default Portfolio;
