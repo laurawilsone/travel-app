@@ -7,14 +7,14 @@ const travelController = require("../controllers/travelController");
 
 
 
-router.get('/travel', (req, res) => {
-	console.log(req.user._id)
-	res.status(200).json({
-		message: "You're authorized to see this secret message.",
-// user values passed through from auth middleware
-		user: req.user
-});
-});
+// router.get('/travel', (req, res) => {
+// 	console.log(req.user._id)
+// 	res.status(200).json({
+// 		message: "You're authorized to see this secret message.",
+// // user values passed through from auth middleware
+// 		user: req.user
+// });
+// });
 
 router.get('/:userId', (req, res) => {
 
@@ -31,7 +31,7 @@ router.get('/:userId', (req, res) => {
 });
 
 router.get("/users", (req, res) => {
-	db.find({})
+	db.find({ })
 	.then(function(userResponse){
 		res.status(200).json(userResponse)
 	})

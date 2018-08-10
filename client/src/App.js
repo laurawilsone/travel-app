@@ -194,13 +194,14 @@ class App extends Component {
             <LoggedOutRoute path="/login" component={LoginPage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
             <LoggedOutRoute path="/signup" component={SignUpPage}/>
             <Route path="/logout" component={LogoutFunction}/>
-            <PrivateRoute path="/travel/:userId" component={InputTravelPage}/>
-     
 
-            {/* <Route exact path="/" component={HomePage} />*/}
-            {/* <Route exact path="/travel" component={InputTravelPage} /> */}
+
+            <Route path="/travel/:userId" component={InputTravelPage}/>
+            <Route exact path="/calendar/:userId/" component={Calendar} /> 
+
+
             <Route exact path="/travel/:travelId" component={TravelAgenda} />
-            <Route exact path="/calendar" component={Calendar} /> 
+            
             
            </div>
       

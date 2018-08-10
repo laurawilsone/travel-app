@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import API from "../../utils/API";
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import Selectable from '../../components/Calendar'
-
+import "./calendar.css"
 
 class Calendar extends Component {
   state = {
@@ -27,12 +27,12 @@ render() {
 
   return (
     <div className="app">
-      <div className="jumbotron">
+      <div className="jumbotronCal">
         <div className="container">
-          <h1>
+          <h1 className="calText">
             Your Trips <i className="fa fa-calendar" />
           </h1>
-          <p>Get Stylin'!</p>
+          <p className="foo">Get Stylin'!</p>
         </div>
       </div>
       <Selectable trips={this.state.trips}

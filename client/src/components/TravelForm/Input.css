@@ -27,6 +27,10 @@ input.form-control {
     background-color: lightblue;
 }
 
+section {
+    background-image: url("/images/portfolio/fullsize/greece.jpeg");
+   
+}
 
 .main-section {
     padding: 30px;
@@ -36,8 +40,4 @@ input.form-control {
     border: 1px solid black;
     border-radius: 10px;
     
-}
-
-section {
-    background: url("/images/greece.jpg" );
 }

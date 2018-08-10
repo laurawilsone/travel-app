@@ -52,12 +52,12 @@ app.use('/apt', authCheckMiddleware); // api
 const authRoutes = require('./routes/auth'); //./routes/authRoutes
 const apiRoutes = require('./routes/api');
 app.use('/auth', authRoutes);
-app.use('/apt', apiRoutes); //api
+app.use('/api', apiRoutes); //api
 
 //Leslie's
 
-const routes = require("./routes")(passport);
-app.use('/', routes);
+// const routes = require("./routes")(passport);
+// app.use('/', routes);
 
 // AZ 
 

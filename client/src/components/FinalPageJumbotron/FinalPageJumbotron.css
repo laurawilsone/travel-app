@@ -1,7 +1,7 @@
 
 h1 {
     font-size: 50px;
-    background-color: coral;
+    /* background-color: coral; */
     display:inline;
     max-width: 600px;
     padding: 20px;

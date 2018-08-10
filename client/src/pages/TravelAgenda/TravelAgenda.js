@@ -4,7 +4,7 @@ import { List, ListItem } from "../../components/List";
 import { Container } from "../../components/Grid";
 import FavBtn from "../../components/FavBtn";
 import DeleteBtn from "../../components/DeleteBtn";
-import FinalPageJumbotron from "../../components/FinalPageJumbotron";
+// import FinalPageJumbotron from "../../components/FinalPageJumbotron";
 import { Link } from "react-router-dom";
 import "./TravelAgenda.css";
 import { Input, FormBtn } from "../../components/TravelForm";
@@ -165,7 +165,7 @@ class TravelAgenda extends Component {
 
         return (
             <Container>
-                <FinalPageJumbotron className="FinalPageJumbotron" />
+                {/* <FinalPageJumbotron className="FinalPageJumbotron" /> */}
 
 
                 {!this.state.isLoading &&

@@ -20,13 +20,14 @@ class InputTravelPage extends Component {
         weatherDescriptions: "",
         trips: [],
         imageObjects: [],
-        secretDate: ""
+        
     };
 
     componentDidMount() {
         this.loadTravel();
+
         const xhr = new XMLHttpRequest();
-        xhr.open('get', '/api/dashboard');
+        xhr.open('get', '/api/calendar');
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         // set the authorization HTTP header
         xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
@@ -34,7 +35,7 @@ class InputTravelPage extends Component {
         xhr.addEventListener('load', () => {
           if (xhr.status === 200) {
             this.setState({
-              secretData: xhr.response.message
+              
             });
           }
         });
@@ -70,12 +71,12 @@ class InputTravelPage extends Component {
         });
     };
 
-    handleFormSubmit = event => {
+    handleFormSubmit = (event, travelId) => {
         event.preventDefault();
         API.createTravel(
             this.state
         )
-            .then(res => this.props.history.push("/calendar")
+            .then(res => this.props.history.push("/calendar/" + travelId)
             )
             .catch(err => console.log(err));
     }
@@ -84,12 +85,14 @@ class InputTravelPage extends Component {
         return (
            
             <Container>
-                <Input secretData={this.state.secretData} />
+                
                 <form>
                     <section>
+                  
                     <Input
                         value={this.state.city} onChange={this.handleInputChange} name="city" placeholder="Where are you going?"
                     />
+                   
                     <Input
                         value={this.state.startDate} onChange={this.handleInputChange} name="startDate" placeholder="When are you leaving?"
                     />
