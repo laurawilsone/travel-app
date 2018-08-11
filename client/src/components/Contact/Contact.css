@@ -108,9 +108,10 @@ section#email {
   background-color: #ffccbb;
   padding: 4rem 0;
   
-  
-  
+}
 
+.emailBar {
+  width: 300px !important;
 }
 
 p.emailText {

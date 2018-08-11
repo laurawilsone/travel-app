@@ -24,6 +24,7 @@ class InputTravelPage extends Component {
     };
 
     componentDidMount() {
+
         this.loadTravel();
 
         const xhr = new XMLHttpRequest();
@@ -71,12 +72,12 @@ class InputTravelPage extends Component {
         });
     };
 
-    handleFormSubmit = (event, travelId) => {
+    handleFormSubmit = (event, userId) => {
         event.preventDefault();
         API.createTravel(
             this.state
         )
-            .then(res => this.props.history.push("/calendar/" + travelId)
+            .then(res => this.props.history.push("/calendar/" + userId)
             )
             .catch(err => console.log(err));
     }

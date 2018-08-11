@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./Header.css";
-import axios from "axios";
+// import axios from "axios";
 import Auth from '../../modules/Auth';
-import { Card, CardTitle, CardText } from 'material-ui/Card';
+import { Card, CardText } from 'material-ui/Card';
 
 class Header extends Component {
 
@@ -19,11 +19,6 @@ class Header extends Component {
                 loggedIn: null, 
                 recoverPasswordSuccess: null, 
 
-                
-                firstname: "", 
-                lastname: "", 
-                email: "", 
-                password: "", 
 
             };
         
@@ -48,44 +43,44 @@ class Header extends Component {
         // }
         
 
-        onLoginSuccess() {
+        // onLoginSuccess() {
            
-            var loginURL = "/auth";
-            // http://localhost:3000
+        //     var loginURL = "/auth";
+        //     // http://localhost:3000
 
-            const login = {
-                "email": this.state.email,
-                "password": this.state.password
+        //     // const login = {
+        //     //     "email": this.state.email,
+        //     //     "password": this.state.password
         
-            }
+        //     // }
         
-            axios.post(loginURL + "/login", { 
+        //     axios.post(loginURL + "/login", { 
                 
-                email: this.state.email,
-                password: this.state.password
+        //         email: this.state.email,
+        //         password: this.state.password
                 
-            })
-            .then(res => {
-                console.log(res);
-                console.log(res.data);
-                console.log(res.body);       
-                if (res.status === 200) {
-                    // update App.js state 
-                    // this.props.updateUser ({
-                    //     loggedIn: true,
-                    //     email: res.data.email
-                    // }) // update the state to redirect to 
+        //     })
+        //     .then(res => {
+        //         console.log(res);
+        //         console.log(res.data);
+        //         console.log(res.body);       
+        //         if (res.status === 200) {
+        //             // update App.js state 
+        //             // this.props.updateUser ({
+        //             //     loggedIn: true,
+        //             //     email: res.data.email
+        //             // }) // update the state to redirect to 
                     
-                    this.setState({
-                        redirectTo: '/travel'
-                    })
-                } 
-            }).catch(error => {
-                console.log(error);
-                window.location = "/"
-            });
+        //             this.setState({
+        //                 redirectTo: '/travel'
+        //             })
+        //         } 
+        //     }).catch(error => {
+        //         console.log(error);
+        //         window.location = "/"
+        //     });
     
-        }
+        // }
 
         // onRegisterSuccess() {
         
@@ -142,47 +137,47 @@ class Header extends Component {
     //     this.setState({ activeTab: index });
     //   }
 
-      onRegister() { //
-        console.log('__onRegister__');
+    //   onRegister() { //
+    //     console.log('__onRegister__');
        
-        var registerURL = "/auth";
+    //     var registerURL = "/auth";
  
-            axios.post(registerURL + "/register", { 
+    //         axios.post(registerURL + "/register", { 
 
-                firstname: this.state.firstname,
-                lastname: this.state.lastname,
-                username: this.state.email,
-                password: this.state.password
+    //             firstname: this.state.firstname,
+    //             lastname: this.state.lastname,
+    //             username: this.state.email,
+    //             password: this.state.password
 
-            })
-                .then(res => {
-                    console.log(res);
-                    console.log(res.data);
-                    console.log(res.body);
+    //         })
+    //             .then(res => {
+    //                 console.log(res);
+    //                 console.log(res.data);
+    //                 console.log(res.body);
             
-                    if (res.data) {
+    //                 if (res.data) {
                          
-                        this.setState({
-                             redirectTo: '/login'
+    //                     this.setState({
+    //                          redirectTo: '/login'
                              
                             
                             
-                        })
+    //                     })
 
-                        console.log('success!')
-                        // window.location = "/login"
-                    } else if (res.data.redirect === '/login') {
-                        // window.location = "/login"
+    //                     console.log('success!')
+    //                     // window.location = "/login"
+    //                 } else if (res.data.redirect === '/login') {
+    //                     // window.location = "/login"
                         
-                    }
-                }).catch(error => {
-                    console.log(error);
-                    // window.location = "/login"
+    //                 }
+    //             }).catch(error => {
+    //                 console.log(error);
+    //                 // window.location = "/login"
                     
-                });
+    //             });
         
-        // this.onRegisterSuccess();
-      }
+    //     this.onRegisterSuccess();
+    //   }
     
      
 

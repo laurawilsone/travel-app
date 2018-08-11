@@ -6,32 +6,32 @@ export default {
         return (axios.post(`/api/profile/`, travellogData))
     },
 
-    getTravelProfile: (userId) => {
-        return (axios.get(`/api/profile/${userId}`))
+    getTravelProfile: () => { //userID
+        return (axios.get(`/api/profile/`))
     },
 
-    editTravelProfile: (profileData, userId) => {
-        return (axios.patch(`/api/profile/${userId}`, profileData))
+    editTravelProfile: (profileData) => {
+        return (axios.patch(`/api/profile/`, profileData))
     },
 
     //TRAVEL
-    findAllTravel: () => {
-        return (axios.get("/api/travel"))
+    findAllTravel: (userId) => {
+        return (axios.get(`/api/travel/${userId}`))
     },
-    createTravel: (travelData) => {
-        return (axios.post("/api/travel", travelData))
-    },
-
-    findOneTravel: (travelId) => {
-        return (axios.get(`/api/travel/${travelId}`))
+    createTravel: (travelData, userId) => {
+        return (axios.post(`/api/travel/${userId}`, travelData))
     },
 
-    editTravel: (travelId, travelData) => {
-        return (axios.put(`/api/travel/${travelId}`, travelData))
+    findOneTravel: (travelId, userId) => {
+        return (axios.get(`/api/travel/${userId}/${travelId}`))
     },
 
-    deleteTravel: (travelId) => {
-        return (axios.delete(`/api/travel/${travelId}`))
+    editTravel: (travelId,userId, travelData) => {
+        return (axios.put(`/api/travel/${userId}/${travelId}`, travelData))
+    },
+
+    deleteTravel: (travelId, userId) => {
+        return (axios.delete(`/api/travel/${userId}/${travelId}`))
     }
 
 }

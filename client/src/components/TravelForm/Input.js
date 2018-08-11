@@ -1,7 +1,7 @@
 import React from "react";
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import "./Input.css";
-import { Card, CardTitle, CardText } from 'material-ui/Card';
+import { Card, CardTitle } from 'material-ui/Card';
 
 
 

@@ -1,6 +1,6 @@
 // original //
 import React, { Component } from 'react'; //
-import { BrowserRouter as Router, Route, Switch, Link, Redirect} from "react-router-dom"; //
+import { BrowserRouter as Router, Route, Link, Redirect} from "react-router-dom"; //
 
 import InputTravelPage from "./pages/InputTravelPage/index"; // add /InputTravelPage
 import HomePage from "./pages/HomePage/index"; // add /HomePage
@@ -129,7 +129,7 @@ class App extends Component {
           <nav className="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav"> 
           {/* id was navbar */}
           <div className="container">
-              <a className="navbar-brand js-scroll-trigger" href="#page-top" target="blank"> <img class="smtNav" src="/images/SMT1.png" alt="SMT"/></a>
+              <a className="navbar-brand js-scroll-trigger" href="#page-top" target="blank"> <img className="smtNav" src="/images/SMT1.png" alt="SMT"/></a>
 
               <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
@@ -196,8 +196,8 @@ class App extends Component {
             <Route path="/logout" component={LogoutFunction}/>
 
 
-            <Route path="/travel/:userId" component={InputTravelPage}/>
-            <Route exact path="/calendar/:userId/" component={Calendar} /> 
+            <PrivateRoute path="/travel/:userId" component={InputTravelPage}/>
+            <Route exact path="/calendar/:userId" component={Calendar} /> 
 
 
             <Route exact path="/travel/:travelId" component={TravelAgenda} />

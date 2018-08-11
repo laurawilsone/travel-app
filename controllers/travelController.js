@@ -35,16 +35,34 @@ const fetchTumblrData = (travelAndWeather) => {
 
 module.exports = {
   findAllTravel: (req, res) => {
+    // db.User
+    // .findAll({
+    //     where: {
+    //       UserId:req.user._id
+    //     }
+    // })
+    // .then(user => res.json(user))
+    // .catch(err => res.status(422).json(err));
+
     db.Travel
       .find(req.query)
       .sort({ date: -1 })
       .then(travels => res.json(travels))
       .catch(err => res.status(422).json(err));
-  },
+
+    },
   createTravel: function (req, res) {
+    // db.User
+    // .findAll({
+    //     where: {
+    //       UserId:req.user._id
+    //     }
+    // })
     db.Travel
       .create(req.body)
       .then(travel => res.json(travel))
+      .catch(err => res.status(422).json(err))
+      .then(user => res.json(user))
       .catch(err => res.status(422).json(err));
   },
   findOneTravel: function (req, res) {
