@@ -2,10 +2,10 @@
 import React, { Component } from 'react'; //
 import { BrowserRouter as Router, Route, Switch, Link, Redirect} from "react-router-dom"; //
 
-import InputTravelPage from "./pages/InputTravelPage/index"; // add /InputTravelPage
-import HomePage from "./pages/HomePage/index"; // add /HomePage
-import Calendar from "./pages/calendar/index";
-import TravelAgenda from "./pages/TravelAgenda/index";
+import InputTravelPage from "./pages/InputTravelPage"; // add /InputTravelPage
+import HomePage from "./pages/HomePage"; // add /HomePage
+import Calendar from "./pages/Calendar";
+import TravelAgenda from "./pages/TravelAgenda";
 // original //
 
 import "./components/Navbar/Navbar.css"
@@ -13,7 +13,7 @@ import "./components/Navbar/Navbar.css"
 import LoginPage from './containers/LoginPage.jsx';
 import LogoutFunction from './containers/LogoutFunction.jsx';
 import SignUpPage from './containers/SignUpPage.jsx';
-import Auth from './modules/Auth';
+import Auth from './utils/Auth';
 
 
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
