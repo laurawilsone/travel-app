@@ -19,21 +19,17 @@ const travelSchema = new Schema({
     type: String,
     required: true,
   },
-  state: {
-    type: String,
-    required: false,
-  },
   country: {
     type: String,
     required: true,
   },
   flightNumber: {
     type: String,
-    required: false,
+    required: true,
   },
   hotel: {
     type: String,
-    required: false,
+    required: true,
   },
   packingList: [{
     type: String,

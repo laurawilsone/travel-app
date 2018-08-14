@@ -13,37 +13,37 @@ class InputTravelPage extends Component {
         startDate: "",
         endDate: "",
         city: "",
-        state: "",
+        // state: "",
         country: "",
         flightNumber: "",
         hotel: "",
-        weatherDescriptions: "",
-        trips: [],
-        imageObjects: [],
-        secretDate: ""
+        // _id: ""
+        // trips: [],
+        // imageObjects: [],
+        // secretDate: ""
     };
 
-    componentDidMount() {
-        this.loadTravel();
-    }
+    // componentDidMount() {
+    //     this.loadTravel();
+    // }
 
-    loadTravel = () => {
-        API.findAllTravel()
-            .then(res =>
-                this.setState({ trips: res.data })
-            )
-    }
+    // loadTravel = () => {
+    //     API.findAllTravel()
+    //         .then(res =>
+    //             this.setState({ trips: res.data })
+    //         )
+    // }
 
-    deleteTravel = travelId => {
-        API.deleteTravel(travelId)
-            .then(res => this.loadTravel())
-            .catch(err => console.log(err));
-    };
+    // deleteTravel = travelId => {
+    //     API.deleteTravel(travelId)
+    //         .then(res => this.loadTravel())
+    //         .catch(err => console.log(err));
+    // };
 
-    editTravel = travelId => {
-        API.editTravel(travelId)
-            .catch(err => console.log(err));
-    };
+    // editTravel = travelId => {
+    //     API.editTravel(travelId)
+    //         .catch(err => console.log(err));
+    // };
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -54,11 +54,21 @@ class InputTravelPage extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        API.createTravel(
-            this.state
-        )
-            .then(res => this.props.history.push("/calendar")
-            )
+        API.createTravel({
+            city: this.state.city,
+            state: this.state.state,
+            hotel: this.state.hotel,
+            startDate: this.state.startDate,
+            endDate: this.state.endDate,
+            country: this.state.country,
+            flightNumber: this.state.flightNumber,
+            _id: this.state._id,
+        })
+            .then(res => {
+                console.log(res)
+                // this.setState({ _id: ObjectId() })
+                this.props.history.push(`/calendar`)
+            })
             .catch(err => console.log(err));
     }
 

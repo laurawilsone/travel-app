@@ -19,6 +19,10 @@ const UserSchema = Schema({
     type: String,
     default: "LastName"
   },
+  travels: [{
+    type: Schema.Types.ObjectId,
+    ref: "Travel"
+  }],
 });
 
 /**
