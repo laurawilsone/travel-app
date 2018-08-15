@@ -21,7 +21,8 @@
   "description": "Travel app for final project - input your travel plans and let the app be your personal style planner",
   "main": "server.js",
   "engines": {
-    "node": "9.4.0"
+    "node": "9.4.0",
+    "npm": "5.6.0"
   },
   "scripts": {
     "bundle": "webpack",
