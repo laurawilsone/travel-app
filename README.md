@@ -2,7 +2,7 @@
  
 # 💼 Style My Travel 👗 - Your personal travel stylist in a full-stack app
 
-View the completed app on Heroku: <a>LINK COMING SOON</a>.
+View the completed app on Heroku <a href="https://style-my-travel.herokuapp.com">here</a>
 
 Style My Travel a full-stack React app where jetsetters can get some seriously fab inspiration for their travels. Simply create a travel profile and input your upcoming travels to see all of your trips in one place on our travel calendar. Then, click your trip on the calendar for your personalized fashion itinerary, which includes fashion-spired outfits personally tailored to your specific trip, the weather in that city, and more. Don't forget to ❤ your fave outfits for inspiration, and create your packing list right there from the itinerary!
 
