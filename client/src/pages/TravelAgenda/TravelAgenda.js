@@ -26,7 +26,9 @@ class TravelAgenda extends Component {
         weather: null,
         isLoading: true,
         tumblr: null,
-        fashionpics
+        fashionpics,
+        weatherAvailable: true,
+        error: false
     };
 
     componentDidMount() {
@@ -34,21 +36,32 @@ class TravelAgenda extends Component {
     }
 
     loadUserTravel = () => {
+
         API.findOneTravel(this.props.match.params.travelId)
             .then(res => {
                 console.log(res)
                 this.setState({
-                    weather: res.data.weather,
                     tumblr: res.data.tumblr,
                     trip: res.data.travel,
                     packingList: res.data.travel.packingList,
                     imageObjects: res.data.travel.imageObjects,
-                    inputText: res.data.travel.inputText
+                    inputText: res.data.travel.inputText,
+                    weather: res.data.weather
                 })
+                if (res.data.weather.error) {
+                    this.setState({
+                        error: res.data.weather.error,
+                        weatherAvailable: false
+                    })
+                }
+                
             })
-
-            .then(() => this.setState({ isLoading: false }))
-            .catch(err => console.log(err));
+            .then(() =>
+                this.setState({
+                    isLoading: false
+                })
+            )
+            .catch(err => console.log(err))
     }
 
     deleteTrip = travelId => {
@@ -175,13 +188,11 @@ class TravelAgenda extends Component {
         );
     }
 
-
     render() {
 
         return (
             <Container>
                 <FinalPageJumbotron className="FinalPageJumbotron" />
-
 
                 {!this.state.isLoading &&
 
@@ -216,10 +227,17 @@ class TravelAgenda extends Component {
                                     </strong></h3> {this.state.trip.hotel}
                                     <br />
 
-                                    <h3><strong>Weather details</strong></h3>
-                                    <p>{this.state.weather.weather[0].description}</p>
-                                    <h3><strong>Temperature</strong></h3>
-                                    <p>{this.state.weather.main.temp}</p>
+                                    <div>
+                                        {this.state.weatherAvailable &&
+                                            <div>
+                                                <h3><strong>Weather details</strong></h3>
+                                                <p>{this.state.weather.weather[0].description}</p>
+                                                <h3><strong>Temperature</strong></h3>
+                                                <p>{this.state.weather.main.temp}</p>
+                                            </div>
+                                        }
+                                    </div>
+
                                 </div>
                             </div>
 
@@ -236,14 +254,14 @@ class TravelAgenda extends Component {
                                     </List>
                                 )
                                     :
-                                    
+
                                     (
                                         <div>
 
                                             <h4>No photos for your city at this time - so we selected some for you!</h4>
-                                                {
-                                                    
-                                                    this.state.fashionpics.map(pic => this.renderFashionPics(pic))}
+                                            {
+
+                                                this.state.fashionpics.map(pic => this.renderFashionPics(pic))}
                                         </div>
                                     )}
 
