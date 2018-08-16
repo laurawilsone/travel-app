@@ -23,6 +23,8 @@ const fetchWeatherData = travel => {
 					weather: weatherData.data,
 					travel: travel
 				});
+				console.log(weatherData)
+
 			})
 			.catch(error => {
 				// STILL resolve

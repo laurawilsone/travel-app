@@ -26,9 +26,7 @@ class TravelAgenda extends Component {
         weather: null,
         isLoading: true,
         tumblr: null,
-        fashionpics,
-        weatherAvailable: true,
-        error: false
+        fashionpics
     };
 
     componentDidMount() {
@@ -48,13 +46,6 @@ class TravelAgenda extends Component {
                     inputText: res.data.travel.inputText,
                     weather: res.data.weather
                 })
-                if (res.data.weather.error) {
-                    this.setState({
-                        error: res.data.weather.error,
-                        weatherAvailable: false
-                    })
-                }
-                
             })
             .then(() =>
                 this.setState({
@@ -228,7 +219,7 @@ class TravelAgenda extends Component {
                                     <br />
 
                                     <div>
-                                        {this.state.weatherAvailable &&
+                                        {this.state.weather.weather &&
                                             <div>
                                                 <h3><strong>Weather details</strong></h3>
                                                 <p>{this.state.weather.weather[0].description}</p>
@@ -237,7 +228,6 @@ class TravelAgenda extends Component {
                                             </div>
                                         }
                                     </div>
-
                                 </div>
                             </div>
 
