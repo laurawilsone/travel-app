@@ -223,7 +223,7 @@ class TravelAgenda extends Component {
                                 )
                                     :
                                     (
-                                        <h3>No Results to Display</h3>
+                                        <h3>No photos for this location</h3>
                                     )}
 
                             </div>
@@ -247,7 +247,7 @@ class TravelAgenda extends Component {
                                     </List>
                                 ) :
                                     (
-                                        <h3>No Results to Display</h3>
+                                        <h3>No Saved Photos</h3>
 
                                     )}
 
