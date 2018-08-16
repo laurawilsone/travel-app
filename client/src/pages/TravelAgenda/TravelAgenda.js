@@ -7,11 +7,12 @@ import DeleteBtn from "../../components/DeleteBtn";
 import FinalPageJumbotron from "../../components/FinalPageJumbotron";
 import { Link } from "react-router-dom";
 import "./TravelAgenda.css";
+import fashionpics from "./fashionpics.json";
 import { Input, FormBtn } from "../../components/TravelForm";
 
 class TravelAgenda extends Component {
     state = {
-            trip: { 
+        trip: {
             imageObjects: [],
             inputText: [],
             city: null,
@@ -21,10 +22,11 @@ class TravelAgenda extends Component {
             hotel: null,
             flightNumber: null,
             packingList: []
-            },
+        },
         weather: null,
         isLoading: true,
-        tumblr: null
+        tumblr: null,
+        fashionpics
     };
 
     componentDidMount() {
@@ -33,16 +35,17 @@ class TravelAgenda extends Component {
 
     loadUserTravel = () => {
         API.findOneTravel(this.props.match.params.travelId)
-            .then(res => { 
+            .then(res => {
                 console.log(res)
                 this.setState({
-                weather: res.data.weather,
-                tumblr: res.data.tumblr,
-                trip: res.data.travel,
-                packingList: res.data.travel.packingList,
-                imageObjects: res.data.travel.imageObjects,
-                inputText: res.data.travel.inputText 
-             } )} )
+                    weather: res.data.weather,
+                    tumblr: res.data.tumblr,
+                    trip: res.data.travel,
+                    packingList: res.data.travel.packingList,
+                    imageObjects: res.data.travel.imageObjects,
+                    inputText: res.data.travel.inputText
+                })
+            })
 
             .then(() => this.setState({ isLoading: false }))
             .catch(err => console.log(err));
@@ -150,6 +153,17 @@ class TravelAgenda extends Component {
         })
     };
 
+    renderFashionPics(pic) {
+
+        return (
+            <ListItem key={pic.id}>
+                <img src={pic.image} alt="fashionImg" style={{ width: 150, }} />
+                <FavBtn onClick={() => this.saveImages(pic.id, pic.image)} />
+            </ListItem>
+        );
+    }
+
+
     renderTumblrItem(tum) {
         if (!tum.photos) return false;
 
@@ -222,8 +236,15 @@ class TravelAgenda extends Component {
                                     </List>
                                 )
                                     :
+                                    
                                     (
-                                        <h3>No photos for this location</h3>
+                                        <div>
+
+                                            <h4>No photos for your city at this time - so we selected some for you!</h4>
+                                                {
+                                                    
+                                                    this.state.fashionpics.map(pic => this.renderFashionPics(pic))}
+                                        </div>
                                     )}
 
                             </div>
