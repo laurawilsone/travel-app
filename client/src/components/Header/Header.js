@@ -276,7 +276,7 @@ class Header extends Component {
                                         background:'transparent',
                                 }}>
                                     {Auth.isUserAuthenticated() ? (
-                                        <CardText style={{ fontSize: '16px', color: 'white' }}>Welcome! You are logged in.</CardText>
+                                        <CardText style={{ fontSize: '16px', color: 'white' }}>Welcome, {this.state.email}! You are logged in.</CardText>
                                     ) : (
                                         <CardText style={{ fontSize: '16px', color: 'white' }}>You are not logged in.</CardText>
                                     )}
