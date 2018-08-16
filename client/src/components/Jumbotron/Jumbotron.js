@@ -8,7 +8,7 @@ export const Jumbotron = props => (
   >
     <div className="jumbotron">
       <div className="container">
-        <h1>
+        <h1 className="finalJumbo">
           Your Trips <i className="fa fa-calendar" />
         </h1>
         <p>Get Stylin'!</p>
