@@ -12,7 +12,7 @@ import { Input, FormBtn } from "../../components/TravelForm";
 
 class TravelAgenda extends Component {
     state = {
-        trip: {
+            trip: { 
             imageObjects: [],
             inputText: [],
             city: null,
@@ -189,11 +189,11 @@ class TravelAgenda extends Component {
 
                     <section className="travelDeets">
 
-                        {/* <div className="buttons center"> */}
+                        <div className="buttonAgenda">
                         <button className="deleteTripButton btn" onClick={() => this.deleteTrip(this.state.trip._id)} >DELETE TRIP</button>
 
-                        <button className="addTripButton btn"><Link to={"/travels/"}>ADD ANOTHER TRIP</Link></button>
-                        {/* </div> */}
+                        <button className="addTripButton btn"><Link className="addTripButton" to={"/travels/"}>ADD ANOTHER TRIP</Link></button>
+                        </div>
 
                         <div className='ui grid'>
                             <div className='detailsRow left floated six wide column'>
@@ -236,7 +236,7 @@ class TravelAgenda extends Component {
 
                         <div className='ui grid'>
                             <div className='picsRow left floated six wide column'>
-                                <h3>Fashion pics</h3>
+                            <div className="savedArea"><h3>Fashion pics</h3></div>
                                 {this.state.tumblr.length ? (
 
                                     <List>
@@ -256,7 +256,6 @@ class TravelAgenda extends Component {
                                     )}
 
                             </div>
-
                             <div className='savedAreaPics right floated six wide column'>
 
                                 <div className="savedArea"><h3>Saved fashion pics</h3></div>
@@ -284,27 +283,33 @@ class TravelAgenda extends Component {
 
                         </div>
 
+                        {/* Packing List */}
+
                         <div className="packingArea twelve wide column">
                             <div className="row">
                                 <div className='twelve wide column packingArea align-content-center'>
 
+                                    <h1 className="packingTitle"> What are you packing? </h1>
+
+                                    <div className="packingBox">
                                     <Input
+                                        // valuehtml="What are you packing?"
                                         name="inputText"
                                         value={this.state.inputText}
                                         placeholder="What should you pack?"
                                         onChange={this.handleInputChange} />
+                                    </div>
+                                    
+                                    <div className="formButtonDiv">
+                                        <FormBtn className="formButton" disabled={!(this.state.inputText)} onClick={(event) => this.handleFormSubmit(this.state.inputText, event)}>
+                                            Submit new item to packing list
+                                        </FormBtn>
+                                    </div>
+                                    
                                 </div>
                             </div>
-                            <div className="row">
 
-                                <div className='twelve wide column packingArea formBtn'>
-
-                                    <FormBtn className="formButton" disabled={!(this.state.inputText)} onClick={(event) => this.handleFormSubmit(this.state.inputText, event)}>
-                                        Submit new item to packing list
-                                                </FormBtn>
-                                </div>
-                            </div>
-                            <div className="row">
+                               <div className="row">
 
                                 <div className='twelve wide column packingArea'>
                                     {this.state.packingList.length ? (
