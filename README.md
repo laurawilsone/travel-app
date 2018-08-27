@@ -25,28 +25,6 @@ Style My Travel a full-stack React app where jetsetters can get some seriously f
 | JavaScript | Bootstrap |
 | HTML | CSS |
 
-* React
-* React-Big-Calendar
-* Tumblr API
-* OpenWeatherMap API
-* Animate CSS
-* Elemental-UI
-* Semantic-UI
-* Material-UI
-* BcryptJS
-* JsonWebToken
-* Babel
-* MongoDB
-* Mongoose
-* Axios
-* Express
-* Node.js
-* Javascript
-* Bootstrap
-* Passport
-* HTML
-* CSS
-
 **Screenshots:**
 <img width="950" alt="screen shot 2018-08-17 at 9 08 28 am" src="https://user-images.githubusercontent.com/34491285/44270811-20de3a00-a1fe-11e8-8fe3-7e99be20f643.png">
 <img width="946" alt="screen shot 2018-08-17 at 9 08 05 am" src="https://user-images.githubusercontent.com/34491285/44270789-115ef100-a1fe-11e8-90fd-8ce0ec7b8d29.png">
